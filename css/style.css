@@ -60,7 +60,7 @@ button {
 .container {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 3rem;
   flex: 1;
 }
 
@@ -230,10 +230,14 @@ button {
 
 /* Mobile */
 @media (max-width: 480px) {
+  .container {
+    padding: 4rem 0rem 2rem 0rem;
+  }
+
   /* Hero Section  */
   .hero {
     background-image: url("../images/bg-header-mobile.png");
-    padding: 3rem 1.5rem 2rem 1.5rem;
+    padding: 2rem 1.5rem 2rem 1.5rem;
   }
 
   .hero__logo {
@@ -245,13 +249,14 @@ button {
   }
 
   .hero__title {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     line-height: 1.2;
     margin-bottom: 1rem;
+    max-width: 275px;
   }
 
   .hero__description {
-    font-size: 0.85rem;
+    font-size: 0.98rem;
     margin-bottom: 1.5rem;
     max-width: 300px;
     line-height: 1.5;
@@ -286,16 +291,18 @@ button {
     font-size: 2rem;
     margin-bottom: 1rem;
     line-height: 1.4;
+    max-width: 320px;
   }
 
   .hero__description {
-    font-size: 0.9rem;
+    font-size: 1rem;
     max-width: 450px;
   }
 
   .hero__buttons {
     flex-direction: column;
     gap: 1.25rem;
+    width: 100%;
   }
 
   .hero__btn {
@@ -312,7 +319,7 @@ button {
   }
 
   .hero__title {
-    font-size: 2.7rem;
+    font-size: 2.5rem;
     line-height: 1.2;
   }
 
@@ -323,5 +330,6 @@ button {
 
   .hero__buttons {
     gap: 1rem;
+    width: 100%;
   }
 }
