@@ -493,30 +493,50 @@ button:focus,
 
   /* Features Section for larger tablets */
   .features {
-    padding: 3rem 2.5rem 2.5rem 2.5rem;
+    padding: 5rem 2.5rem;
   }
 
   .features__title {
-    font-size: 1.9rem;
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
   }
 
   .features__description {
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     max-width: 600px;
+    margin-bottom: 3rem;
   }
 
   .features__layout {
-    padding: 3rem 2rem 2rem 0;
-    gap: 5rem;
+    flex-direction: row;
+    padding: 3rem 0;
+    gap: 6rem;
+  }
+
+  .features__image {
+    flex: 1 1 60%;
+    margin-left: -8rem;
+  }
+
+  .features__content {
+    flex: 1 1 40%;
+    text-align: left;
+  }
+
+  .features__list {
+    text-align: left;
+    max-width: 400px;
+    margin: 0;
+    gap: 2.5rem;
   }
 
   .features__list h3 {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     margin-bottom: 0.75rem;
   }
 
   .features__list p {
-    font-size: 1rem;
+    font-size: 1.15rem;
     line-height: 1.6;
   }
 }
