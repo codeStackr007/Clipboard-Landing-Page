@@ -45,13 +45,20 @@ button {
 :root {
   --color-primary-green: hsl(171, 66%, 44%);
   --color-primary-blue: hsl(233, 100%, 69%);
+  --color-neutral-light: #f8f9fa;
   --color-neutral-dark: hsl(210, 10%, 33%);
   --color-neutral-medium: hsl(201, 11%, 66%);
   --font-family-primary: "Bai Jamjuree", sans-serif;
   --font-weight-regular: 400;
   --font-weight-semibold: 600;
   --font-size-base: 18px;
-  --font-size-heading: clamp(2rem, 4vw, 3.5rem);
+  --font-size-heading: clamp(2rem, 4vw, 3rem);
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 2rem;
+  --spacing-lg: 4rem;
+  --spacing-xl: clamp(2rem, 5vw, 4rem);
+  --spacing-side: clamp(1.5rem, 3vw, 3rem);
 }
 
 /* ====================================
@@ -60,7 +67,7 @@ button {
 .container {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 3rem;
+  padding: var(--spacing-xl) var(--spacing-side);
   flex: 1;
 }
 
@@ -114,8 +121,7 @@ button:focus,
    ==================================== */
 .hero {
   min-height: 100vh;
-  background: var(--color-neutral-light, #f8f9fa)
-    url("../images/bg-header-desktop.png");
+  background: var(--color-neutral-light) url("../images/bg-header-desktop.png");
   background-repeat: no-repeat;
   background-size: contain;
   width: 100%;
@@ -124,7 +130,7 @@ button:focus,
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 4rem 2.5rem 0 2.5rem;
+  padding: var(--spacing-lg) var(--spacing-side) 0 var(--spacing-side);
 }
 
 .hero__content {
@@ -144,7 +150,7 @@ button:focus,
 
 .hero__title {
   margin-bottom: 1.25rem;
-  font-size: 3rem;
+  font-size: var(--font-size-heading);
   color: var(--color-neutral-dark);
 }
 
@@ -190,6 +196,10 @@ button:focus,
   opacity: 0.6;
 }
 
+.hero__btn:active {
+  transform: translateY(2px);
+}
+
 .hero__btn--ios:hover {
   background-color: hsl(171, 66%, 40%);
   box-shadow: 0 2px 0 hsl(171, 66%, 30%),
@@ -211,7 +221,8 @@ button:focus,
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 4rem 2.5rem 2.5rem 0;
+  padding: var(--spacing-lg) var(--spacing-side) var(--spacing-md)
+    var(--spacing-side);
 }
 
 .features__header {
@@ -225,7 +236,7 @@ button:focus,
 }
 
 .features__title {
-  font-size: 2rem;
+  font-size: var(--font-size-heading);
   margin-bottom: 1.25rem;
   color: var(--color-neutral-dark);
 }
@@ -238,9 +249,9 @@ button:focus,
 
 .features__layout {
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: center;
-  padding: 4rem 4rem 4rem 0;
+  padding: var(--spacing-lg) var(--spacing-lg) var(--spacing-lg) 0;
   gap: 7rem;
   position: relative;
 }
