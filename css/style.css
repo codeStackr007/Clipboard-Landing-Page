@@ -332,21 +332,21 @@ button:focus,
   }
 
   .features__title {
-    font-size: 1.7rem;
-    margin-bottom: 1.25rem;
-    line-height: 1.3;
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+    line-height: 1.2;
   }
 
   .features__description {
-    max-width: 600px;
-    font-size: 0.98rem;
-    margin-bottom: 1rem;
+    font-size: 0.95rem;
+    max-width: 320px;
+    line-height: 1.5;
   }
 
   .features__layout {
     flex-direction: column;
-    padding: 1rem;
-    gap: 4rem;
+    padding: 1.5rem;
+    gap: 3rem;
   }
 
   .features__image {
@@ -356,16 +356,25 @@ button:focus,
 
   .features__content {
     width: 100%;
-    text-align: left;
-    flex-direction: column;
+    text-align: center;
   }
 
   .features__list {
-    flex-direction: column;
     text-align: center;
-    max-width: 350px;
+    max-width: 300px;
+    margin: 0 auto;
     gap: 2rem;
+  }
+
+  .features__list h3 {
     font-size: 1rem;
+    margin-bottom: 0.5rem;
+    font-weight: var(--font-weight-semibold);
+  }
+
+  .features__list p {
+    font-size: 0.95rem;
+    line-height: 1.5;
   }
 }
 
@@ -405,30 +414,30 @@ button:focus,
 
   /* Features Section */
   .features {
-    padding: 2rem 1.5rem 2rem 1.5rem;
+    padding: 2.5rem 2rem 2rem 2rem;
   }
 
   .features__header {
     width: 100%;
-    padding: 1rem;
+    padding: 1.5rem;
   }
 
   .features__title {
-    font-size: 1.8rem;
+    font-size: 1.75rem; /* Between mobile and desktop */
     margin-bottom: 1.25rem;
     line-height: 1.3;
   }
 
   .features__description {
-    max-width: 600px;
     font-size: 1rem;
-    margin-bottom: 1rem;
+    max-width: 500px;
+    line-height: 1.6;
   }
 
   .features__layout {
     flex-direction: column;
-    padding: 1rem;
-    gap: 4rem;
+    padding: 2rem;
+    gap: 3.5rem;
   }
 
   .features__image {
@@ -438,16 +447,25 @@ button:focus,
 
   .features__content {
     width: 100%;
-    text-align: left;
-    flex-direction: column;
+    text-align: center;
   }
 
   .features__list {
-    flex-direction: column;
     text-align: center;
-    max-width: 330px;
-    gap: 2rem;
+    max-width: 400px;
+    margin: 0 auto;
+    gap: 2.25rem;
+  }
+
+  .features__list h3 {
     font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    font-weight: var(--font-weight-semibold);
+  }
+
+  .features__list p {
+    font-size: 0.95rem;
+    line-height: 1.6;
   }
 }
 
@@ -471,5 +489,34 @@ button:focus,
   .hero__buttons {
     gap: 1rem;
     width: 100%;
+  }
+
+  /* Features Section for larger tablets */
+  .features {
+    padding: 3rem 2.5rem 2.5rem 2.5rem;
+  }
+
+  .features__title {
+    font-size: 1.9rem;
+  }
+
+  .features__description {
+    font-size: 1.1rem;
+    max-width: 600px;
+  }
+
+  .features__layout {
+    padding: 3rem 2rem 2rem 0;
+    gap: 5rem;
+  }
+
+  .features__list h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .features__list p {
+    font-size: 1rem;
+    line-height: 1.6;
   }
 }
