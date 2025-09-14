@@ -161,7 +161,7 @@ button:focus,
 
 .hero__description {
   color: var(--color-neutral-medium);
-  max-width: clamp(300px, 60vw, 620px);
+  max-width: clamp(310px, 60vw, 620px);
   margin-bottom: var(--spacing-sm);
   font-size: var(--font-size-body);
 }
