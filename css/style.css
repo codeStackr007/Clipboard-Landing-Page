@@ -579,6 +579,14 @@ button:focus,
 
 /* Small Mobile Devices (320px - 480px) */
 @media (max-width: 480px) {
+  /* Mobile Hero Background Override */
+  .hero {
+    background: var(--color-neutral-light) url("/images/bg-header-mobile.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 100%;
+  }
+
   /* Section Padding Adjustments */
   .hero,
   .features,
