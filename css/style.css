@@ -43,24 +43,27 @@ button {
    CSS CUSTOM PROPERTIES (VARIABLES)
    ==================================== */
 :root {
+  /* Color Palette */
   --color-primary-green: hsl(171, 66%, 44%);
   --color-primary-blue: hsl(233, 100%, 69%);
   --color-neutral-light: #f8f9fa;
   --color-neutral-dark: hsl(210, 10%, 33%);
   --color-neutral-medium: hsl(201, 11%, 66%);
+
+  /* Typography */
   --font-family-primary: "Bai Jamjuree", sans-serif;
   --font-weight-regular: 400;
   --font-weight-semibold: 600;
   --font-size-base: 18px;
 
-  /* Responsive font sizes using clamp */
+  /* Responsive Font Sizes */
   --font-size-body: clamp(1rem, 2vw, 1.15rem);
   --font-size-hero: clamp(2rem, 4vw, 2.5rem);
   --font-size-section: clamp(1.8rem, 3.5vw, 2.4rem);
   --font-size-feature: clamp(1.1rem, 2.5vw, 1.4rem);
   --font-size-small: clamp(0.95rem, 1.8vw, 1rem);
 
-  /* Responsive spacing using clamp */
+  /* Responsive Spacing */
   --spacing-xs: 0.5rem;
   --spacing-sm: clamp(1rem, 2vw, 1.5rem);
   --spacing-md: clamp(2rem, 4vw, 3rem);
@@ -80,38 +83,9 @@ button {
 }
 
 /* ====================================
-   ACCESSIBILITY STYLES
+   ACCESSIBILITY & FOCUS STYLES
    ==================================== */
-a:focus {
-  outline: 2px solid var(--color-primary-blue);
-  outline-offset: 2px;
-  border-radius: 7px;
-}
-
-.download__cta:focus,
-button:focus,
-.hero__btn:focus {
-  outline-offset: 8px;
-}
-
-*:focus {
-  outline: none;
-}
-
-.hero__btn:focus::after,
-.download__cta:focus::after {
-  outline-offset: 8px;
-  content: "";
-  position: absolute;
-  top: -5px;
-  left: -5px;
-  right: -5px;
-  bottom: -8px;
-  border: 2px solid var(--color-primary-blue);
-  border-radius: calc(2rem + 3px);
-  pointer-events: none;
-}
-
+/* Text Selection Styles */
 ::selection {
   background-color: var(--color-primary-green);
   color: white;
@@ -122,8 +96,41 @@ button:focus,
   color: white;
 }
 
+/* Focus Reset */
+*:focus {
+  outline: none;
+}
+
+/* General Link Focus */
+a:focus {
+  outline: 2px solid var(--color-primary-blue);
+  outline-offset: 2px;
+  border-radius: 7px;
+}
+
+/* Button Focus Styles */
+.download__cta:focus,
+button:focus,
+.hero__btn:focus {
+  outline-offset: 8px;
+}
+
+.hero__btn:focus::after,
+.download__cta:focus::after {
+  outline-offset: 8px;
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -9px;
+  border: 2px solid var(--color-primary-blue);
+  border-radius: calc(2rem + 3px);
+  pointer-events: none;
+}
+
 /* ====================================
-   HERO SECTION STYLES (Desktop Base)
+   HERO SECTION
    ==================================== */
 .hero {
   background: var(--color-neutral-light) url("/images/bg-header-desktop.png");
@@ -145,6 +152,7 @@ button:focus,
   align-items: center;
 }
 
+/* Hero Logo */
 .hero__logo {
   margin-bottom: var(--spacing-md);
   width: clamp(80px, 8vw, 120px);
@@ -154,6 +162,7 @@ button:focus,
   width: 100%;
 }
 
+/* Hero Typography */
 .hero__title {
   margin-bottom: var(--spacing-sm);
   font-size: var(--font-size-hero);
@@ -169,8 +178,9 @@ button:focus,
 }
 
 /* ====================================
-   SHARED SECTION STYLES
+   SHARED BUTTON STYLES
    ==================================== */
+/* Button Containers */
 .hero__buttons,
 .download__buttons {
   display: flex;
@@ -180,6 +190,7 @@ button:focus,
   margin-top: var(--spacing-sm);
 }
 
+/* Base Button Styles */
 .hero__btn,
 .download__cta {
   position: relative;
@@ -193,6 +204,7 @@ button:focus,
   min-width: 160px;
 }
 
+/* iOS Button Variant */
 .hero__btn--ios,
 .download__btn--ios {
   background-color: var(--color-primary-green);
@@ -200,6 +212,7 @@ button:focus,
     0px 7px 15px 2px hsla(171, 66%, 44%, 0.4);
 }
 
+/* Mac Button Variant */
 .hero__btn--mac,
 .download__btn--mac {
   background-color: var(--color-primary-blue);
@@ -207,18 +220,19 @@ button:focus,
     0px 4px 20px 0px rgba(139, 137, 137, 0.6);
 }
 
+/* Button Hover States */
 .hero__btn:hover,
 .download__cta:hover {
   transform: translateY(1px);
   opacity: 0.9;
 }
 
-/* FIXED: Added missing comma and improved opacity value */
 .hero__btn:active,
 .download__cta:active {
   transform: translateY(2px);
 }
 
+/* iOS Button Hover */
 .hero__btn--ios:hover,
 .download__btn--ios:hover {
   background-color: hsl(171, 66%, 40%);
@@ -226,6 +240,7 @@ button:focus,
     0px 7px 15px 2px hsla(171, 66%, 44%, 0.6);
 }
 
+/* Mac Button Hover */
 .hero__btn--mac:hover,
 .download__btn--mac:hover {
   background-color: hsl(233, 100%, 65%);
@@ -233,8 +248,9 @@ button:focus,
 }
 
 /* ====================================
-   SECTION BASE STYLES
+   SHARED SECTION STYLES
    ==================================== */
+/* Section Base Layout */
 .features,
 .access,
 .workflow,
@@ -248,6 +264,7 @@ button:focus,
   text-align: center;
 }
 
+/* Section Padding */
 .features {
   padding: var(--spacing-lg) var(--spacing-side) var(--spacing-md);
 }
@@ -257,7 +274,7 @@ button:focus,
 }
 
 .workflow {
-  padding: var(--spacing-md) var(--spacing-side) var(--spacing-md);
+  padding: var(--spacing-lg) var(--spacing-side) var(--spacing-md);
   margin: 0 auto;
 }
 
@@ -270,9 +287,10 @@ button:focus,
 }
 
 .footer {
-  padding: var(--spacing-md) var(--spacing-side) var(--spacing-sm);
+  padding: var(--spacing-lg) var(--spacing-side) var(--spacing-sm);
 }
 
+/* Section Headers */
 .features__header,
 .access__header,
 .workflow__header {
@@ -286,6 +304,7 @@ button:focus,
   margin-bottom: var(--spacing-md);
 }
 
+/* Section Titles */
 .features__title,
 .access__title,
 .workflow__title,
@@ -296,6 +315,7 @@ button:focus,
   line-height: 1.2;
 }
 
+/* Section Descriptions */
 .features__description,
 .access__description,
 .workflow__description,
@@ -305,6 +325,7 @@ button:focus,
   font-size: var(--font-size-body);
 }
 
+/* Description Width Constraints */
 .features__description {
   max-width: clamp(280px, 75vw, 700px);
 }
@@ -316,8 +337,9 @@ button:focus,
 }
 
 /* ====================================
-   FEATURES SECTION SPECIFIC STYLES
+   FEATURES SECTION
    ==================================== */
+/* Features Layout Container */
 .features__layout {
   display: flex;
   justify-content: flex-start;
@@ -327,16 +349,19 @@ button:focus,
   position: relative;
 }
 
+/* Features Image */
 .features__image {
   flex: 1 1 60%;
   margin-left: clamp(-25rem, -20vw, -15rem);
 }
 
+/* Features Content */
 .features__content {
   flex: 1 1 40%;
   text-align: left;
 }
 
+/* Features List */
 .features__list {
   display: flex;
   flex-direction: column;
@@ -345,6 +370,7 @@ button:focus,
   gap: var(--spacing-md);
 }
 
+/* Features List Items */
 .features__list h3 {
   color: var(--color-neutral-dark);
   font-size: var(--font-size-feature);
@@ -359,15 +385,16 @@ button:focus,
 }
 
 /* ====================================
-   ACCESS SECTION SPECIFIC STYLES
+   ACCESS SECTION
    ==================================== */
 .access__devices {
   margin-top: var(--spacing-md);
 }
 
 /* ====================================
-   WORKFLOW SECTION SPECIFIC STYLES
+   WORKFLOW SECTION
    ==================================== */
+/* Workflow Steps Grid */
 .workflow__steps {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -377,6 +404,7 @@ button:focus,
   align-items: baseline;
 }
 
+/* Individual Workflow Step */
 .workflow__step {
   display: flex;
   flex-direction: column;
@@ -384,12 +412,14 @@ button:focus,
   text-align: center;
 }
 
+/* Workflow Step Visual */
 .workflow__visual {
   width: 56px;
   height: auto;
   margin-bottom: var(--spacing-sm);
 }
 
+/* Workflow Step Typography */
 .workflow__step-title {
   color: var(--color-neutral-dark);
   font-size: var(--font-size-feature);
@@ -404,8 +434,9 @@ button:focus,
 }
 
 /* ====================================
-   PARTNERS SECTION SPECIFIC STYLES
+   PARTNERS SECTION
    ==================================== */
+/* Partners Logo Container */
 .partners__visual {
   display: flex;
   flex-wrap: wrap;
@@ -414,26 +445,29 @@ button:focus,
   align-items: center;
 }
 
+/* Individual Partner Logo */
 .partners__visual li {
   max-width: 250px;
   height: auto;
-  cursor: pointer; /* MOVED: Cursor to individual items for better UX */
+  cursor: pointer;
 }
 
+/* Partner Logo Images */
 .partners__visual li img {
   opacity: 0.7;
   transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
-/* Hover effect for logos */
+/* Partner Logo Hover Effect */
 .partners__visual li:hover img {
   opacity: 1;
   transform: scale(1.05);
 }
 
 /* ====================================
-   FOOTER STYLES
+   FOOTER SECTION
    ==================================== */
+/* Footer Base */
 .footer {
   display: flex;
   flex-direction: column;
@@ -445,6 +479,7 @@ button:focus,
   gap: var(--spacing-sm);
 }
 
+/* Footer Container */
 .footer__container {
   margin: 0 auto;
   display: flex;
@@ -455,27 +490,30 @@ button:focus,
   max-width: 1100px;
 }
 
+/* Footer Logo */
 .footer__logo {
   width: 56px;
   height: auto;
   flex-shrink: 0;
 }
 
+/* Footer Navigation Group */
 .footer__nav-group {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: stretch;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: var(--spacing-lg);
-  flex: 1;
   transition: all 0.3s ease-in-out;
+  justify-content: center;
 }
 
+/* Footer Navigation Lists */
 .footer__nav-list {
   display: flex;
   flex-direction: column;
   gap: var(--spacing-xs);
 }
 
+/* Footer Navigation Links */
 .footer__nav-list li a {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   color: var(--color-neutral-dark);
@@ -491,6 +529,7 @@ button:focus,
   width: 100%;
 }
 
+/* Footer Social Section */
 .footer__social {
   display: flex;
   gap: var(--spacing-sm);
@@ -501,6 +540,7 @@ button:focus,
   gap: var(--spacing-sm);
 }
 
+/* Footer Social Links */
 .footer__social-list li a {
   display: inline-block;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -511,9 +551,8 @@ button:focus,
 }
 
 /* ====================================
-   ATTRIBUTION STYLES
+   ATTRIBUTION SECTION
    ==================================== */
-
 .attribution {
   text-align: center;
   padding: 1rem 0;
@@ -532,4 +571,122 @@ button:focus,
 
 .attribution a:hover {
   color: var(--color-primary-green);
+}
+
+/* ====================================
+   RESPONSIVE DESIGN - MEDIA QUERIES
+   ==================================== */
+
+/* Small Mobile Devices (320px - 480px) */
+@media (max-width: 480px) {
+  /* Section Padding Adjustments */
+  .hero,
+  .features,
+  .access,
+  .workflow {
+    padding: var(--spacing-lg) var(--spacing-xs) var(--spacing-lg);
+  }
+
+  .partners,
+  .download {
+    padding: var(--spacing-lg) var(--spacing-xs) var(--spacing-xl);
+  }
+
+  /* Typography Adjustments */
+  .hero__title,
+  .workflow__title,
+  .download__title {
+    max-width: 340px;
+  }
+
+  .features__description,
+  .download__description {
+    max-width: 305px;
+  }
+
+  .attribution {
+    font-size: 14px;
+  }
+
+  /* Button Layout - Stack Vertically */
+  .hero__buttons,
+  .download__buttons {
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    width: 100%;
+  }
+
+  .hero__btn,
+  .download__cta {
+    width: 100%;
+    max-width: 260px;
+    font-size: 0.9rem;
+  }
+
+  /* Features Section - Mobile Layout */
+  .features__layout {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-md);
+    margin: 0 auto;
+    padding: var(--spacing-md);
+  }
+
+  .features__image {
+    width: 100%;
+    margin: 0 auto;
+    margin-left: 0;
+  }
+
+  .features__list {
+    text-align: center;
+  }
+
+  /* Workflow Section - Single Column */
+  .workflow__steps {
+    grid-template-columns: repeat(1, 1fr);
+    padding: var(--spacing-md);
+    width: 100%;
+  }
+
+  /* Partners Section - Stack Vertically */
+  .partners__visual {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  /* Footer Section - Mobile Layout */
+  .footer__container {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-md);
+  }
+
+  .footer__nav-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-xs);
+  }
+
+  .footer__nav-list {
+    text-align: center;
+  }
+
+  .footer__nav-list li {
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .footer__social {
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .footer__social-list {
+    gap: var(--spacing-md);
+  }
 }
