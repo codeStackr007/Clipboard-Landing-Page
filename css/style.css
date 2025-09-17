@@ -133,7 +133,7 @@ button:focus,
    HERO SECTION
    ==================================== */
 .hero {
-  min-height: 80vh;
+  min-height: 90vh;
   background: var(--color-neutral-light) url("/images/bg-header-desktop.png");
   background-repeat: no-repeat;
   background-size: contain;
