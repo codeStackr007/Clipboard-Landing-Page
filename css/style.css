@@ -1,37 +1,43 @@
 /* ====================================
    CSS RESETS & BASE STYLES
    ==================================== */
+/* Reset default margins and paddings */
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
 
+/* Base body styles */
 body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
   line-height: 1.6;
   font-family: var(--font-family-primary);
-  color: #333;
+  color: var(--color-neutral-dark);
   font-size: var(--font-size-base);
 }
 
+/* Responsive images */
 img {
   max-width: 100%;
   height: auto;
 }
 
+/* Link styles */
 a {
   text-decoration: none;
   color: inherit;
 }
 
+/* List styles */
 ul,
 li {
   list-style: none;
 }
 
+/* Button reset */
 button {
   border: none;
   background: none;
@@ -42,8 +48,8 @@ button {
 /* ====================================
    CSS CUSTOM PROPERTIES (VARIABLES)
    ==================================== */
+/* Color palette */
 :root {
-  /* Color Palette */
   --color-primary-green: hsl(171, 66%, 44%);
   --color-primary-blue: hsl(233, 100%, 69%);
   --color-neutral-light: #f8f9fa;
@@ -56,14 +62,14 @@ button {
   --font-weight-semibold: 600;
   --font-size-base: 18px;
 
-  /* Responsive Font Sizes */
+  /* Responsive font sizes */
   --font-size-body: clamp(1rem, 2vw, 1.15rem);
   --font-size-hero: clamp(2rem, 4vw, 2.5rem);
   --font-size-section: clamp(1.8rem, 3.5vw, 2.4rem);
   --font-size-feature: clamp(1.1rem, 2.5vw, 1.4rem);
   --font-size-small: clamp(0.95rem, 1.8vw, 1rem);
 
-  /* Responsive Spacing */
+  /* Responsive spacing */
   --spacing-xs: 0.5rem;
   --spacing-sm: clamp(1rem, 2vw, 1.5rem);
   --spacing-md: clamp(2rem, 4vw, 3rem);
@@ -75,6 +81,7 @@ button {
 /* ====================================
    LAYOUT UTILITIES
    ==================================== */
+/* Centered container with responsive padding */
 .container {
   max-width: 1100px;
   margin: 0 auto;
@@ -85,7 +92,7 @@ button {
 /* ====================================
    ACCESSIBILITY & FOCUS STYLES
    ==================================== */
-/* Text Selection Styles */
+/* Text selection styling */
 ::selection {
   background-color: var(--color-primary-green);
   color: white;
@@ -96,25 +103,25 @@ button {
   color: white;
 }
 
-/* Focus Reset */
+/* Focus outline reset */
 *:focus {
   outline: none;
 }
 
-/* General Link Focus */
+/* Link focus styles */
 a:focus {
   outline: 2px solid var(--color-primary-blue);
   outline-offset: 2px;
   border-radius: 7px;
 }
 
-/* Button Focus Styles */
+/* Button focus states */
 .download__cta:focus,
-button:focus,
 .hero__btn:focus {
   outline-offset: 8px;
 }
 
+/* Button focus outline */
 .hero__btn:focus::after,
 .download__cta:focus::after {
   outline-offset: 8px;
@@ -130,8 +137,125 @@ button:focus,
 }
 
 /* ====================================
+   SHARED COMPONENTS
+   ==================================== */
+/* Section base styles */
+.features,
+.access,
+.workflow,
+.partners,
+.download {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* Section headers */
+.features__header,
+.access__header,
+.workflow__header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* Section titles */
+.features__title,
+.access__title,
+.workflow__title,
+.download__title {
+  font-size: var(--font-size-section);
+  margin-bottom: var(--spacing-sm);
+  color: var(--color-neutral-dark);
+  line-height: 1.2;
+}
+
+/* Section descriptions */
+.features__description,
+.access__description,
+.workflow__description,
+.download__description {
+  color: var(--color-neutral-medium);
+  margin-bottom: var(--spacing-sm);
+  font-size: var(--font-size-body);
+}
+
+/* Button container */
+.hero__buttons,
+.download__buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  margin-top: var(--spacing-sm);
+}
+
+/* Button base styles */
+.hero__btn,
+.download__cta {
+  position: relative;
+  padding: 0.94rem 1.875rem;
+  border-radius: 2rem;
+  font-weight: var(--font-weight-semibold);
+  color: white;
+  font-size: clamp(0.9rem, 2vw, 1rem);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 160px;
+}
+
+/* iOS button styles */
+.hero__btn--ios,
+.download__btn--ios {
+  background-color: var(--color-primary-green);
+  box-shadow: 0 4px 0 hsl(171, 66%, 35%),
+    0px 7px 15px 2px hsla(171, 66%, 44%, 0.4);
+}
+
+/* Mac button styles */
+.hero__btn--mac,
+.download__btn--mac {
+  background-color: var(--color-primary-blue);
+  box-shadow: 0 4px 0 hsl(233, 100%, 55%),
+    0px 4px 20px 0px rgba(139, 137, 137, 0.6);
+}
+
+/* Button hover states */
+.hero__btn:hover,
+.download__cta:hover {
+  transform: translateY(1px);
+  opacity: 0.9;
+}
+
+/* Button active states */
+.hero__btn:active,
+.download__cta:active {
+  transform: translateY(2px);
+}
+
+/* iOS button hover */
+.hero__btn--ios:hover,
+.download__btn--ios:hover {
+  background-color: hsl(171, 66%, 40%);
+  box-shadow: 0 2px 0 hsl(171, 66%, 30%),
+    0px 7px 15px 2px hsla(171, 66%, 44%, 0.6);
+}
+
+/* Mac button hover */
+.hero__btn--mac:hover,
+.download__btn--mac:hover {
+  background-color: hsl(233, 100%, 65%);
+  box-shadow: 0 2px 0 hsl(233, 100%, 50%), 0 1px 4px rgba(0, 0, 0, 0.4);
+}
+
+/* ====================================
    HERO SECTION
    ==================================== */
+/* Hero section layout */
 .hero {
   min-height: 90vh;
   background: var(--color-neutral-light) url("/images/bg-header-desktop.png");
@@ -146,6 +270,7 @@ button:focus,
   padding: var(--spacing-lg) var(--spacing-side) var(--spacing-md);
 }
 
+/* Hero content container */
 .hero__content {
   display: flex;
   flex-direction: column;
@@ -153,17 +278,18 @@ button:focus,
   align-items: center;
 }
 
-/* Hero Logo */
+/* Hero logo */
 .hero__logo {
   margin-bottom: var(--spacing-md);
   width: clamp(80px, 8vw, 120px);
 }
 
+/* Hero logo image */
 .hero__logo-img {
   width: 100%;
 }
 
-/* Hero Typography */
+/* Hero title */
 .hero__title {
   margin-bottom: var(--spacing-sm);
   font-size: var(--font-size-hero);
@@ -171,6 +297,7 @@ button:focus,
   line-height: 1.2;
 }
 
+/* Hero description */
 .hero__description {
   color: var(--color-neutral-medium);
   max-width: clamp(310px, 60vw, 620px);
@@ -179,168 +306,19 @@ button:focus,
 }
 
 /* ====================================
-   SHARED BUTTON STYLES
+   FEATURES SECTION
    ==================================== */
-/* Button Containers */
-.hero__buttons,
-.download__buttons {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--spacing-sm);
-  margin-top: var(--spacing-sm);
-}
-
-/* Base Button Styles */
-.hero__btn,
-.download__cta {
-  position: relative;
-  padding: 0.94rem 1.875rem;
-  border-radius: 2rem;
-  font-weight: var(--font-weight-semibold);
-  color: white;
-  font-size: clamp(0.9rem, 2vw, 1rem);
-  cursor: pointer;
-  transition: all 0.3s ease;
-  min-width: 160px;
-}
-
-/* iOS Button Variant */
-.hero__btn--ios,
-.download__btn--ios {
-  background-color: var(--color-primary-green);
-  box-shadow: 0 4px 0 hsl(171, 66%, 35%),
-    0px 7px 15px 2px hsla(171, 66%, 44%, 0.4);
-}
-
-/* Mac Button Variant */
-.hero__btn--mac,
-.download__btn--mac {
-  background-color: var(--color-primary-blue);
-  box-shadow: 0 4px 0 hsl(233, 100%, 55%),
-    0px 4px 20px 0px rgba(139, 137, 137, 0.6);
-}
-
-/* Button Hover States */
-.hero__btn:hover,
-.download__cta:hover {
-  transform: translateY(1px);
-  opacity: 0.9;
-}
-
-.hero__btn:active,
-.download__cta:active {
-  transform: translateY(2px);
-}
-
-/* iOS Button Hover */
-.hero__btn--ios:hover,
-.download__btn--ios:hover {
-  background-color: hsl(171, 66%, 40%);
-  box-shadow: 0 2px 0 hsl(171, 66%, 30%),
-    0px 7px 15px 2px hsla(171, 66%, 44%, 0.6);
-}
-
-/* Mac Button Hover */
-.hero__btn--mac:hover,
-.download__btn--mac:hover {
-  background-color: hsl(233, 100%, 65%);
-  box-shadow: 0 2px 0 hsl(233, 100%, 50%), 0 1px 4px rgba(0, 0, 0, 0.4);
-}
-
-/* ====================================
-   SHARED SECTION STYLES
-   ==================================== */
-/* Section Base Layout */
-.features,
-.access,
-.workflow,
-.partners,
-.download {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-/* Section Padding */
+/* Features section layout */
 .features {
   padding: var(--spacing-lg) var(--spacing-side) var(--spacing-md);
 }
 
-.access {
-  padding: var(--spacing-xs) var(--spacing-side);
-}
-
-.workflow {
-  padding: var(--spacing-lg) var(--spacing-side) var(--spacing-md);
-  margin: 0 auto;
-}
-
-.partners {
-  padding: var(--spacing-lg) var(--spacing-side) var(--spacing-md);
-}
-
-.download {
-  padding: var(--spacing-lg) var(--spacing-side) var(--spacing-xl);
-}
-
-.footer {
-  padding: var(--spacing-lg) var(--spacing-side) var(--spacing-sm);
-}
-
-/* Section Headers */
-.features__header,
-.access__header,
-.workflow__header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
-.workflow__header {
-  margin-bottom: var(--spacing-md);
-}
-
-/* Section Titles */
-.features__title,
-.access__title,
-.workflow__title,
-.download__title {
-  font-size: var(--font-size-section);
-  margin-bottom: var(--spacing-sm);
-  color: var(--color-neutral-dark);
-  line-height: 1.2;
-}
-
-/* Section Descriptions */
-.features__description,
-.access__description,
-.workflow__description,
-.download__description {
-  color: var(--color-neutral-medium);
-  margin-bottom: var(--spacing-sm);
-  font-size: var(--font-size-body);
-}
-
-/* Description Width Constraints */
+/* Features description */
 .features__description {
   max-width: clamp(280px, 75vw, 700px);
 }
 
-.access__description,
-.workflow__description,
-.download__description {
-  max-width: clamp(320px, 70vw, 700px);
-}
-
-/* ====================================
-   FEATURES SECTION
-   ==================================== */
-/* Features Layout Container */
+/* Features layout container */
 .features__layout {
   display: flex;
   justify-content: flex-start;
@@ -350,19 +328,19 @@ button:focus,
   position: relative;
 }
 
-/* Features Image */
+/* Features image */
 .features__image {
   flex: 1 1 60%;
   margin-left: clamp(-25rem, -20vw, -15rem);
 }
 
-/* Features Content */
+/* Features content */
 .features__content {
   flex: 1 1 40%;
   text-align: left;
 }
 
-/* Features List */
+/* Features list */
 .features__list {
   display: flex;
   flex-direction: column;
@@ -371,7 +349,7 @@ button:focus,
   gap: var(--spacing-md);
 }
 
-/* Features List Items */
+/* Features list titles */
 .features__list h3 {
   color: var(--color-neutral-dark);
   font-size: var(--font-size-feature);
@@ -379,6 +357,7 @@ button:focus,
   font-weight: var(--font-weight-semibold);
 }
 
+/* Features list descriptions */
 .features__list li > p {
   color: var(--color-neutral-medium);
   font-size: var(--font-size-body);
@@ -388,6 +367,17 @@ button:focus,
 /* ====================================
    ACCESS SECTION
    ==================================== */
+/* Access section layout */
+.access {
+  padding: var(--spacing-xs) var(--spacing-side);
+}
+
+/* Access description */
+.access__description {
+  max-width: clamp(320px, 70vw, 700px);
+}
+
+/* Access devices image */
 .access__devices {
   margin-top: var(--spacing-md);
 }
@@ -395,7 +385,23 @@ button:focus,
 /* ====================================
    WORKFLOW SECTION
    ==================================== */
-/* Workflow Steps Grid */
+/* Workflow section layout */
+.workflow {
+  padding: var(--spacing-lg) var(--spacing-side) var(--spacing-md);
+  margin: 0 auto;
+}
+
+/* Workflow header */
+.workflow__header {
+  margin-bottom: var(--spacing-md);
+}
+
+/* Workflow description */
+.workflow__description {
+  max-width: clamp(320px, 70vw, 700px);
+}
+
+/* Workflow steps grid */
 .workflow__steps {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -405,7 +411,7 @@ button:focus,
   align-items: baseline;
 }
 
-/* Individual Workflow Step */
+/* Workflow step container */
 .workflow__step {
   display: flex;
   flex-direction: column;
@@ -413,14 +419,14 @@ button:focus,
   text-align: center;
 }
 
-/* Workflow Step Visual */
+/* Workflow step visual */
 .workflow__visual {
   width: 56px;
   height: auto;
   margin-bottom: var(--spacing-sm);
 }
 
-/* Workflow Step Typography */
+/* Workflow step title */
 .workflow__step-title {
   color: var(--color-neutral-dark);
   font-size: var(--font-size-feature);
@@ -428,6 +434,7 @@ button:focus,
   margin-bottom: var(--spacing-xs);
 }
 
+/* Workflow step description */
 .workflow__step-text {
   color: var(--color-neutral-medium);
   font-size: var(--font-size-body);
@@ -437,7 +444,12 @@ button:focus,
 /* ====================================
    PARTNERS SECTION
    ==================================== */
-/* Partners Logo Container */
+/* Partners section layout */
+.partners {
+  padding: var(--spacing-lg) var(--spacing-side) var(--spacing-md);
+}
+
+/* Partners visual container */
 .partners__visual {
   display: flex;
   flex-wrap: wrap;
@@ -446,29 +458,42 @@ button:focus,
   align-items: center;
 }
 
-/* Individual Partner Logo */
+/* Partners list items */
 .partners__visual li {
   max-width: 250px;
   height: auto;
   cursor: pointer;
 }
 
-/* Partner Logo Images */
+/* Partners images */
 .partners__visual li img {
   opacity: 0.7;
   transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
-/* Partner Logo Hover Effect */
+/* Partners image hover */
 .partners__visual li:hover img {
   opacity: 1;
   transform: scale(1.05);
 }
 
 /* ====================================
+   DOWNLOAD SECTION
+   ==================================== */
+/* Download section layout */
+.download {
+  padding: var(--spacing-lg) var(--spacing-side) var(--spacing-xl);
+}
+
+/* Download description */
+.download__description {
+  max-width: clamp(320px, 70vw, 700px);
+}
+
+/* ====================================
    FOOTER SECTION
    ==================================== */
-/* Footer Base */
+/* Footer section layout */
 .footer {
   display: flex;
   flex-direction: column;
@@ -478,9 +503,10 @@ button:focus,
   color: var(--color-neutral-dark);
   width: 100%;
   gap: var(--spacing-sm);
+  padding: var(--spacing-lg) var(--spacing-side) var(--spacing-sm);
 }
 
-/* Footer Container */
+/* Footer container */
 .footer__container {
   margin: 0 auto;
   display: flex;
@@ -491,14 +517,14 @@ button:focus,
   max-width: 1100px;
 }
 
-/* Footer Logo */
+/* Footer logo */
 .footer__logo {
   width: 56px;
   height: auto;
   flex-shrink: 0;
 }
 
-/* Footer Navigation Group */
+/* Footer navigation group */
 .footer__nav-group {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -507,14 +533,14 @@ button:focus,
   justify-content: center;
 }
 
-/* Footer Navigation Lists */
+/* Footer navigation list */
 .footer__nav-list {
   display: flex;
   flex-direction: column;
   gap: var(--spacing-xs);
 }
 
-/* Footer Navigation Links */
+/* Footer navigation links */
 .footer__nav-list li a {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   color: var(--color-neutral-dark);
@@ -522,31 +548,35 @@ button:focus,
   position: relative;
 }
 
+/* Footer navigation hover */
 .footer__nav-list li a:hover {
   opacity: 0.7;
 }
 
+/* Footer navigation hover underline */
 .footer__nav-list li a:hover::after {
   width: 100%;
 }
 
-/* Footer Social Section */
+/* Footer social container */
 .footer__social {
   display: flex;
   gap: var(--spacing-sm);
 }
 
+/* Footer social list */
 .footer__social-list {
   display: flex;
   gap: var(--spacing-sm);
 }
 
-/* Footer Social Links */
+/* Footer social links */
 .footer__social-list li a {
   display: inline-block;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* Footer social hover */
 .footer__social-list li a:hover {
   opacity: 0.7;
 }
@@ -554,22 +584,23 @@ button:focus,
 /* ====================================
    ATTRIBUTION SECTION
    ==================================== */
+/* Attribution text */
 .attribution {
   text-align: center;
   padding: 1rem 0;
   margin-top: auto;
   font-size: 16px;
-  font-family: var(--font-family-body);
   color: var(--color-neutral-dark);
 }
 
+/* Attribution links */
 .attribution a {
   color: var(--color-neutral-dark);
-  text-decoration: none;
   text-decoration: underline;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* Attribution link hover */
 .attribution a:hover {
   color: var(--color-primary-green);
 }
@@ -577,19 +608,17 @@ button:focus,
 /* ====================================
    RESPONSIVE DESIGN - MEDIA QUERIES
    ==================================== */
-
-/* Small Mobile Devices (320px - 480px) */
-@media (max-width: 480px) {
-  /* Mobile Hero Background Override */
+/* Mobile Devices (320px - 540px) */
+@media (max-width: 540px) {
+  /* Hero Section - Mobile Background */
   .hero {
     background: var(--color-neutral-light) url("/images/bg-header-mobile.png");
     background-repeat: no-repeat;
     background-size: contain;
-    width: 100%;
     min-height: 60vh;
   }
 
-  /* Section Padding Adjustments */
+  /* Section Padding - Mobile */
   .hero,
   .features,
   .access,
@@ -602,7 +631,7 @@ button:focus,
     padding: var(--spacing-lg) var(--spacing-xs) var(--spacing-xl);
   }
 
-  /* Typography Adjustments */
+  /* Typography - Mobile Constraints */
   .hero__title,
   .workflow__title,
   .download__title {
@@ -618,7 +647,7 @@ button:focus,
     font-size: 14px;
   }
 
-  /* Button Layout - Stack Vertically */
+  /* Buttons - Mobile Stack */
   .hero__buttons,
   .download__buttons {
     flex-direction: column;
@@ -633,7 +662,7 @@ button:focus,
     font-size: 0.9rem;
   }
 
-  /* Features Section - Mobile Layout */
+  /* Features - Mobile Single Column */
   .features__layout {
     flex-direction: column;
     justify-content: center;
@@ -645,28 +674,27 @@ button:focus,
 
   .features__image {
     width: 100%;
-    margin: 0 auto;
-    margin-left: 0;
+    margin: 0;
   }
 
   .features__list {
     text-align: center;
   }
 
-  /* Workflow Section - Single Column */
+  /* Workflow - Mobile Single Column */
   .workflow__steps {
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: 1fr;
     padding: var(--spacing-md);
     width: 100%;
   }
 
-  /* Partners Section - Stack Vertically */
+  /* Partners - Mobile Stack */
   .partners__visual {
     flex-direction: column;
     width: 100%;
   }
 
-  /* Footer Section - Mobile Layout */
+  /* Footer - Mobile Vertical Stack */
   .footer__container {
     flex-direction: column;
     align-items: center;
@@ -701,28 +729,24 @@ button:focus,
   }
 }
 
-/* Tablet: 481px - 768px */
-@media (min-width: 481px) and (max-width: 768px) {
-  /* Mobile Hero Background Override */
+/* Tablet Devices (541px - 768px) */
+@media (min-width: 541px) and (max-width: 768px) {
+  /* Hero Section - Tablet */
   .hero {
     min-height: 60vh;
-    width: 100%;
     padding: var(--spacing-lg) var(--spacing-xs) var(--spacing-lg);
   }
 
-  /* Section Padding Adjustments */
-  .features,
-  .access,
-  .workflow {
-    padding: var(--spacing-lg) var(--spacing-lg) var(--spacing-lg);
-  }
-
-  .partners,
+  /* Section Padding - Tablet */
   .download {
     padding: var(--spacing-lg) var(--spacing-xs) var(--spacing-xl);
   }
 
-  /* Typography Adjustments */
+  .partners {
+    padding: var(--spacing-lg) var(--spacing-md) var(--spacing-xl);
+  }
+
+  /* Typography - Tablet Expanded Width */
   .hero__title,
   .workflow__title,
   .download__title {
@@ -732,18 +756,16 @@ button:focus,
   .features__description,
   .download__description,
   .access__description {
-    max-width: 370px;
+    max-width: 490px;
   }
 
   .attribution {
     font-size: 14px;
   }
 
-  /* Button Layout - Stack Vertically */
+  /* Buttons - Tablet Stacked */
   .hero__buttons,
   .download__buttons {
-    flex-direction: column;
-    gap: var(--spacing-sm);
     width: 100%;
   }
 
@@ -754,57 +776,38 @@ button:focus,
     font-size: 0.9rem;
   }
 
-  /* Features Section - Mobile Layout */
-  .features__layout {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: var(--spacing-md);
-    margin: 0 auto;
-    padding: var(--spacing-md);
-  }
-
+  /* Features - Tablet Adjusted Spacing */
   .features__image {
     width: 100%;
     margin: 0 auto;
-    margin-left: 0;
+    margin-left: -5rem;
   }
 
-  .features__list {
-    text-align: center;
-  }
-
-  /* Workflow Section - Single Column */
+  /* Workflow - Tablet Single Column */
   .workflow__steps {
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: 1fr;
     padding: var(--spacing-md);
     width: 100%;
     max-width: 400px;
   }
 
-  /* Partners Section - Stack Vertically */
+  /* Partners - Tablet Layout */
   .partners__visual {
-    flex-direction: column;
     width: 100%;
   }
 
-  /* Footer Section - Mobile Layout */
+  /* Footer - Tablet Centered Horizontal */
   .footer__container {
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    gap: var(--spacing-md);
+    gap: var(--spacing-lg);
   }
 
   .footer__nav-group {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    gap: var(--spacing-xs);
-  }
-
-  .footer__nav-list {
-    text-align: center;
+    gap: var(--spacing-lg);
   }
 
   .footer__nav-list li {
@@ -820,5 +823,69 @@ button:focus,
 
   .footer__social-list {
     gap: var(--spacing-md);
+  }
+}
+
+/* Small Desktop/Large Tablet (769px - 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  /* Hero Section - Tablet */
+  .hero {
+    min-height: 50vh;
+    padding: var(--spacing-lg) var(--spacing-xs) var(--spacing-lg);
+  }
+
+  /* Section Padding - Tablet */
+  .download {
+    padding: var(--spacing-lg) var(--spacing-xs) var(--spacing-xl);
+  }
+
+  .partners {
+    padding: var(--spacing-lg) var(--spacing-lg) var(--spacing-xl);
+  }
+
+  .footer {
+    padding: var(--spacing-lg) var(--spacing-lg) var(--spacing-sm);
+  }
+
+  /* Typography - Tablet Expanded Width */
+  .hero__title,
+  .workflow__title,
+  .download__title {
+    max-width: 100%;
+  }
+
+  .features__description,
+  .download__description,
+  .access__description {
+    max-width: 490px;
+  }
+
+  .attribution {
+    font-size: 14px;
+  }
+
+  /* Buttons - Tablet Stacked */
+  .hero__buttons,
+  .download__buttons {
+    width: 100%;
+  }
+
+  .hero__btn,
+  .download__cta {
+    width: 100%;
+    max-width: 260px;
+    font-size: 0.9rem;
+  }
+
+  /* Features - Tablet Adjusted Spacing */
+  .features__image {
+    width: 100%;
+    margin: 0 auto;
+    margin-left: -5rem;
+  }
+
+  /* Partners - Large Tablet Layout */
+  .partners__visual {
+    width: 100%;
   }
 }
