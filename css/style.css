@@ -17,6 +17,7 @@ body {
   font-family: var(--font-family-primary);
   color: var(--color-neutral-dark);
   font-size: var(--font-size-base);
+  background-color: #fefefe;
 }
 
 /* Responsive images */
@@ -52,7 +53,7 @@ button {
 :root {
   --color-primary-green: hsl(171, 66%, 44%);
   --color-primary-blue: hsl(233, 100%, 69%);
-  --color-neutral-light: #f8f9fa;
+  --color-neutral-light: #fefefe;
   --color-neutral-dark: hsl(210, 10%, 33%);
   --color-neutral-medium: hsl(201, 11%, 66%);
 
@@ -498,11 +499,12 @@ a:focus {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: var(--color-neutral-light);
+  background-color: #f8f8f8;
   color: var(--color-neutral-dark);
   width: 100%;
   gap: var(--spacing-sm);
   padding: var(--spacing-lg) var(--spacing-side) var(--spacing-sm);
+  border-bottom: 1px solid red;
 }
 
 /* Footer container */
