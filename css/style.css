@@ -112,7 +112,6 @@ button {
 /* Link focus styles */
 a:focus {
   outline: 2px solid var(--color-primary-blue);
-  border-radius: 3px;
 }
 
 /* Button focus states */
@@ -257,7 +256,7 @@ a:focus {
    ==================================== */
 /* Hero section layout */
 .hero {
-  min-height: 90vh;
+  min-height: 45vh;
   background: var(--color-neutral-light) url("/images/bg-header-desktop.png");
   background-repeat: no-repeat;
   background-size: contain;
@@ -387,7 +386,7 @@ a:focus {
    ==================================== */
 /* Workflow section layout */
 .workflow {
-  padding: var(--spacing-lg) var(--spacing-side) var(--spacing-md);
+  padding: var(--spacing-sm) var(--spacing-side) var(--spacing-md);
   margin: 0 auto;
 }
 
@@ -503,15 +502,14 @@ a:focus {
   color: var(--color-neutral-dark);
   width: 100%;
   gap: var(--spacing-sm);
-  padding: var(--spacing-lg) var(--spacing-side) var(--spacing-sm);
-  border-bottom: 1px solid red;
+  padding: var(--spacing-lg) 0 0;
 }
 
 /* Footer container */
 .footer__container {
-  margin: 0 auto;
+  margin: 0 auto 1.5rem;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: flex-start;
   gap: var(--spacing-lg);
   width: 100%;
@@ -551,7 +549,7 @@ a:focus {
 
 /* Footer navigation hover */
 .footer__nav-list li a:hover {
-  opacity: 0.7;
+  color: var(--color-primary-green);
 }
 
 /* Footer navigation hover underline */
@@ -588,10 +586,12 @@ a:focus {
 /* Attribution text */
 .attribution {
   text-align: center;
-  padding: 1rem 0;
+  padding: 1.5rem 0 1.5rem;
   margin-top: auto;
-  font-size: 16px;
+  font-size: inherit;
   color: var(--color-neutral-dark);
+  border-top: 2px solid #9a9999;
+  width: 100%;
 }
 
 /* Attribution links */
@@ -645,7 +645,7 @@ a:focus {
   }
 
   .attribution {
-    font-size: 14px;
+    font-size: 15px;
   }
 
   /* Buttons - Mobile Stack */
@@ -734,7 +734,7 @@ a:focus {
 @media (min-width: 541px) and (max-width: 768px) {
   /* Hero Section - Tablet */
   .hero {
-    min-height: 60vh;
+    min-height: 40vh;
     padding: var(--spacing-lg) var(--spacing-xs) var(--spacing-lg);
   }
 
@@ -761,7 +761,7 @@ a:focus {
   }
 
   .attribution {
-    font-size: 14px;
+    font-size: 15px;
   }
 
   /* Buttons - Tablet Stacked */
@@ -831,7 +831,7 @@ a:focus {
 @media (min-width: 769px) and (max-width: 1024px) {
   /* Hero Section - Tablet */
   .hero {
-    min-height: 50vh;
+    min-height: 40vh;
     padding: var(--spacing-lg) var(--spacing-xs) var(--spacing-lg);
   }
 
@@ -862,7 +862,7 @@ a:focus {
   }
 
   .attribution {
-    font-size: 14px;
+    font-size: 15px;
   }
 
   /* Buttons - Tablet Stacked */
