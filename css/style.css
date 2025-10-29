@@ -9,6 +9,10 @@
 }
 
 /* Base body styles */
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   display: flex;
   flex-direction: column;
@@ -56,21 +60,23 @@ button {
   --color-neutral-light: #fefefe;
   --color-neutral-dark: hsl(210, 10%, 33%);
   --color-neutral-medium: hsl(201, 11%, 66%);
+}
 
-  /* Typography */
+/* Typography */
+:root {
   --font-family-primary: "Bai Jamjuree", sans-serif;
   --font-weight-regular: 400;
   --font-weight-semibold: 600;
   --font-size-base: 18px;
-
-  /* Responsive font sizes */
   --font-size-body: clamp(1rem, 2vw, 1.15rem);
   --font-size-hero: clamp(2rem, 4vw, 2.5rem);
   --font-size-section: clamp(1.8rem, 3.5vw, 2.4rem);
   --font-size-feature: clamp(1.1rem, 2.5vw, 1.4rem);
   --font-size-small: clamp(0.95rem, 1.8vw, 1rem);
+}
 
-  /* Responsive spacing */
+/* Responsive spacing */
+:root {
   --spacing-xs: 0.5rem;
   --spacing-sm: clamp(1rem, 2vw, 1.5rem);
   --spacing-md: clamp(2rem, 4vw, 3rem);
@@ -115,14 +121,14 @@ a:focus {
 }
 
 /* Button focus states */
-.download__cta:focus,
-.hero__btn:focus {
+.download__cta:focus-visible,
+.hero__btn:focus-visible {
   outline-offset: 8px;
 }
 
 /* Button focus outline */
-.hero__btn:focus::after,
-.download__cta:focus::after {
+.hero__btn:focus-visible::after,
+.download__cta:focus-visible::after {
   outline-offset: 8px;
   content: "";
   position: absolute;
@@ -309,7 +315,7 @@ a:focus {
    ==================================== */
 /* Features section layout */
 .features {
-  padding: var(--spacing-lg) var(--spacing-side) var(--spacing-md);
+  padding: var(--spacing-sm) var(--spacing-side) var(--spacing-md);
 }
 
 /* Features description */
@@ -507,7 +513,7 @@ a:focus {
 
 /* Footer container */
 .footer__container {
-  margin: 0 auto 1.5rem;
+  margin: 0 auto 1.2rem;
   display: flex;
   justify-content: space-evenly;
   align-items: flex-start;
@@ -553,8 +559,15 @@ a:focus {
 }
 
 /* Footer navigation hover underline */
-.footer__nav-list li a:hover::after {
-  width: 100%;
+.footer__nav-list li a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-primary-green);
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Footer social container */
@@ -730,8 +743,8 @@ a:focus {
   }
 }
 
-/* Tablet Devices (541px - 768px) */
-@media (min-width: 541px) and (max-width: 768px) {
+/* Tablet and Small Desktop Devices (541px - 1024px) */
+@media (min-width: 541px) and (max-width: 1024px) {
   /* Hero Section - Tablet */
   .hero {
     min-height: 40vh;
@@ -801,7 +814,7 @@ a:focus {
   .footer__container {
     flex-direction: column;
     align-items: center;
-    gap: var(--spacing-lg);
+    gap: var(--spacing-md);
   }
 
   .footer__nav-group {
@@ -824,69 +837,5 @@ a:focus {
 
   .footer__social-list {
     gap: var(--spacing-md);
-  }
-}
-
-/* Small Desktop/Large Tablet (769px - 1024px) */
-@media (min-width: 769px) and (max-width: 1024px) {
-  /* Hero Section - Tablet */
-  .hero {
-    min-height: 40vh;
-    padding: var(--spacing-lg) var(--spacing-xs) var(--spacing-lg);
-  }
-
-  /* Section Padding - Tablet */
-  .download {
-    padding: var(--spacing-lg) var(--spacing-xs) var(--spacing-xl);
-  }
-
-  .partners {
-    padding: var(--spacing-lg) var(--spacing-lg) var(--spacing-xl);
-  }
-
-  .footer {
-    padding: var(--spacing-lg) var(--spacing-lg) var(--spacing-sm);
-  }
-
-  /* Typography - Tablet Expanded Width */
-  .hero__title,
-  .workflow__title,
-  .download__title {
-    max-width: 100%;
-  }
-
-  .features__description,
-  .download__description,
-  .access__description {
-    max-width: 490px;
-  }
-
-  .attribution {
-    font-size: 15px;
-  }
-
-  /* Buttons - Tablet Stacked */
-  .hero__buttons,
-  .download__buttons {
-    width: 100%;
-  }
-
-  .hero__btn,
-  .download__cta {
-    width: 100%;
-    max-width: 260px;
-    font-size: 0.9rem;
-  }
-
-  /* Features - Tablet Adjusted Spacing */
-  .features__image {
-    width: 100%;
-    margin: 0 auto;
-    margin-left: -5rem;
-  }
-
-  /* Partners - Large Tablet Layout */
-  .partners__visual {
-    width: 100%;
   }
 }
